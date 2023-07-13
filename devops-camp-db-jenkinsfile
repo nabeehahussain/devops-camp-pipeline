@@ -72,6 +72,7 @@ pipeline {
                       sh 'python harbor_scanner.py -i $DB_IMAGE_NAME -r $HARBOR_REGISTRY -p $HARBOR_PROJECT -c ${USERNAME}:${PASSWORD}'
                   }
             }
+              }
         }
               stage('Deploy') {
                   steps {
@@ -83,7 +84,6 @@ pipeline {
            }
         }
     }
-}
         
     post {
         cleanup {
