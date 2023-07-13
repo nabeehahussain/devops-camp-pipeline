@@ -60,9 +60,12 @@ pipeline {
                           }
                       }
                   }
-                  
-                stage('Security scanning') {
-            steps {
+
+                
+              }
+
+              stage('Security scanning') {
+                steps {
                   withCredentials([usernamePassword(credentialsId: 'nhussain-harbor-auth', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) 
                   {
                       echo "Scanning $DB_IMAGE_NAME image"
@@ -70,8 +73,6 @@ pipeline {
                   }
             }
         }
-                
-              }
               stage('Deploy') {
                   steps {
                       echo "Deployment stage"
@@ -82,6 +83,7 @@ pipeline {
            }
         }
     }
+}
         
     post {
         cleanup {
