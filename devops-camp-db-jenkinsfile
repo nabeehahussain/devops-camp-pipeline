@@ -57,10 +57,9 @@ pipeline {
                               } catch (err) {
                                   echo err.getMessage()
                               }
-                          }
                       }
                   }
-
+                }
                 
               }
 
@@ -73,7 +72,7 @@ pipeline {
                   }
             }
               }
-        }
+        
               stage('Deploy') {
                   steps {
                       echo "Deployment stage"
