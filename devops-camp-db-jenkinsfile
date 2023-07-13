@@ -61,7 +61,6 @@ pipeline {
                       }
                   }
                   
-            stages{
                 stage('Security scanning') {
             steps {
                   withCredentials([usernamePassword(credentialsId: 'nhussain-harbor-auth', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) 
@@ -71,7 +70,7 @@ pipeline {
                   }
             }
         }
-                }
+                
               }
               stage('Deploy') {
                   steps {
